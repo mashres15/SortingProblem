@@ -1,43 +1,46 @@
 import time
 import random
+import sys
+
+sys.setrecursionlimit(1500)
 
 #<----------------------------RANDROM NUMBER GENERATOR------------------------->
 def number_generator(size):
     # Open a file
     file = open(str(size)+".txt", "w")
-    
+
     # Generating random numbers
     for i in range(size):
         no = random.randrange(1,1000,1)
         # Writing random numbers in the file
         file.write(str(no)+" ");
-    
+
     # Close opend file
     file.close()
-    
- 
 
-#<---------------------------- UTPUT LIST ------------------------>
+
+
+#<---------------------------- OUTPUT LIST ------------------------>
 def writeList(list,type):
-    
-    # Checking Sort type 
+
+    # Checking Sort type
     if type == "m":
         name = "MergeSort_"
-    
+
     elif type == "i":
         name = "InsertionSort_"
-        
+
     elif type == "q":
         name ="QuickSort_"
-    
+
     # Open a file
     file = open(name+str(len(list))+".txt", "w")
-    
+
     # Generating random numbers
     for i in list:
         # Writing the number in sorted list
         file.write(str(i)+" ");
-    
+
     # Close opend file
     file.close()
 
@@ -68,7 +71,7 @@ def merge_sort(S):
     merge_sort(S2)          # sort copy of second half
     # merge results
     merge(S1, S2, S)        # merge sorted halves back into S
-    
+
 #<----------------------------------INSERTION SORT ------------------->
 
 def insertionSort(alist):
@@ -124,7 +127,6 @@ def partition(alist,first,last):
     alist[rightmark] = temp
     return rightmark
 
-
 # <----------------- METHOD TO MAKE LIST FROM FILE ----------------->
 
 def read_filenum(file):
@@ -143,7 +145,7 @@ def process_time(method):
     processTime = (time.clock() - t0) * 1000
     return processTime
 
-#<---------------------------------- GENERATING NUMBERS ------------------------------------------>        
+#<---------------------------------- GENERATING NUMBERS ------------------------------------------>
 number_generator(10)
 number_generator(100)
 number_generator(1000)
